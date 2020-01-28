@@ -10,7 +10,7 @@ class debugger():
     
     def load(self,path_to_exe):
         
-        creation_flags = 0x00000001
+        creation_flags = DEBUG_PROCESS
         
         startupinfo = STARTUPINFO()
         process_information = PROCESS_INFORMATION()
