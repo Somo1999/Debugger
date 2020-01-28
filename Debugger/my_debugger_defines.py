@@ -8,8 +8,13 @@ DWORD   = c_ulong
 LPBYTE  = POINTER(c_ubyte)
 LPTSTR  = POINTER(c_char)
 HANDLE  = c_void_p
+LPVOID  = POINTER(c_void_p)
+BOOL    = c_short
+LPCWSTR = POINTER(c_wchar)
+LPWSTR  = POINTER(c_char)
 
-DEBU_PROCESS =0x00000001
+
+DEBUG_PROCESS =0x00000001
 CREATE_NEW_CONSOLE =0x00000010
 
 class STARTUPINFO(Structure):
@@ -41,4 +46,13 @@ class PROCESS_INFORMATION(Structure):
         ("dwProcessId", DWORD),
         ("dwThreadId",  DWORD),
     ]    
+
+class SECURITY_ATTRIBUTES(Structure):
+    __fields__ = [
+        ('nLength', DWORD),
+        ('lpSecurityDescriptor', LPVOID),
+        ('bInheritHandle', BOOL)
+    ]
+    
+
     
